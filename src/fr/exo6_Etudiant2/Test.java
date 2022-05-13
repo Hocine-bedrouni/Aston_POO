@@ -7,9 +7,11 @@ public class Test {
 
         personne.sayHello();
 
-        Student stu = new Student(15);
+        Student stu = new Student();
         stu.sayHello();
-        stu.GoToClasses();
+        stu.goToClasses();
+        stu.displayAge();
+        stu.setAge(24);
         stu.displayAge();
 
         Teacher tea = new Teacher();

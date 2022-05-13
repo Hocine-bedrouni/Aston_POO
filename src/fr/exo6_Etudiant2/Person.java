@@ -2,17 +2,28 @@ package fr.exo6_Etudiant2;
 
 public class Person {
 
-    protected int age;
 
-    public void sayHello(){
-        System.out.println("Hello");
+    //Attributs
+    protected int age =99;
+
+    public Person() {
     }
 
-    public void setAge( int age){
+    public Person(int age) {
         this.age = age;
     }
 
+    public void setAge(int age){
+        this.age = age;
+//        this.setAge(age);
+    }
+
     public int getAge() {
-        return age;
+        return this.age;
+    }
+
+    //Methode
+    public void sayHello(){
+        System.out.println("Hello");
     }
 }

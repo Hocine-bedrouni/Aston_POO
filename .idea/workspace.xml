@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d536f497-094a-48c6-849a-f7d700795e4d" name="Changes" comment="Exo Complex">
-      <change afterPath="$PROJECT_DIR$/src/fr/exo5_Point/Point.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fr/exo6_Etudiant2/Person.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fr/exo6_Etudiant2/Student.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fr/exo6_Etudiant2/Teacher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fr/exo6_Etudiant2/Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fr/exo_PointBis/PointBis.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fr/java_tools/Main.java" afterDir="false" />
+    <list default="true" id="d536f497-094a-48c6-849a-f7d700795e4d" name="Changes" comment="Merge remote-tracking branch 'origin/main'">
+      <change afterPath="$PROJECT_DIR$/src/fr/exo_Point2D/Point2D.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/fr/exo_Point2D/main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,9 +48,9 @@
       <recent name="fr.exo_Rectangle" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Test">
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="fr.exo6_Etudiant2.Test" />
+  <component name="RunManager" selected="Application.main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="fr.exo6_Etudiant2.Main" />
       <module name="Aston_POO" />
       <extension name="coverage">
         <pattern>
@@ -67,12 +62,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="fr.exo2_Somme.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="fr.exo2_Somme.Main" />
+    <configuration name="Point2D" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="fr.exo_Point2D.Point2D" />
       <module name="Aston_POO" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="fr.exo2_Somme.*" />
+          <option name="PATTERN" value="fr.exo_Point2D.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -80,12 +75,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="fr.exo4_AdditonComplexe.main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="fr.exo4_AdditonComplexe.main" />
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="fr.exo6_Etudiant2.Test" />
       <module name="Aston_POO" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="fr.exo4_AdditonComplexe.*" />
+          <option name="PATTERN" value="fr.exo6_Etudiant2.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -107,11 +102,11 @@
       </method>
     </configuration>
     <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="fr.exo3_Etudiant.main" />
+      <option name="MAIN_CLASS_NAME" value="fr.exo_Point2D.main" />
       <module name="Aston_POO" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="fr.exo3_Etudiant.*" />
+          <option name="PATTERN" value="fr.exo_Point2D.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -121,11 +116,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.main" />
+        <item itemvalue="Application.Point2D" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Test" />
         <item itemvalue="Application.fr.java_tools.Main" />
-        <item itemvalue="Application.fr.exo4_AdditonComplexe.main" />
-        <item itemvalue="Application.main" />
-        <item itemvalue="Application.fr.exo2_Somme.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -138,7 +133,8 @@
       <option name="presentableId" value="Default" />
       <updated>1652278354152</updated>
       <workItem from="1652278355602" duration="2815000" />
-      <workItem from="1652338748817" duration="24919000" />
+      <workItem from="1652338748817" duration="25266000" />
+      <workItem from="1652425152640" duration="11082000" />
     </task>
     <task id="LOCAL-00001" summary="Exo Rectangle update">
       <created>1652341540175</created>
@@ -224,7 +220,35 @@
       <option name="project" value="LOCAL" />
       <updated>1652358615057</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Exo Etudiant 2">
+      <created>1652366574639</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1652366574639</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Exo Etudiant 2">
+      <created>1652366588076</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1652366588076</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Etudiant 2 end">
+      <created>1652428768769</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1652428768769</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Merge remote-tracking branch 'origin/main'">
+      <created>1652428792027</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1652428792027</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,6 +271,9 @@
     <MESSAGE value="Exo Student" />
     <MESSAGE value="Exo Rectangle update" />
     <MESSAGE value="Exo Complex" />
-    <option name="LAST_COMMIT_MESSAGE" value="Exo Complex" />
+    <MESSAGE value="Exo Etudiant 2" />
+    <MESSAGE value="Etudiant 2 end" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/main'" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/main'" />
   </component>
 </project>
