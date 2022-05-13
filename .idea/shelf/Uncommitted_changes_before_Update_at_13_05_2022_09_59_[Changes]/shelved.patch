@@ -1,0 +1,353 @@
+Index: src/fr/exo6_Etudiant2/Test.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package fr.exo6_Etudiant2;\r\n\r\npublic class Test {\r\n    public static void main(String[] args) {\r\n\r\n        Person personne = new Person();\r\n\r\n        personne.sayHello();\r\n\r\n        Student stu = new Student(15);\r\n        stu.sayHello();\r\n        stu.GoToClasses();\r\n        stu.displayAge();\r\n\r\n        Teacher tea = new Teacher();\r\n        tea.sayHello();\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/fr/exo6_Etudiant2/Test.java b/src/fr/exo6_Etudiant2/Test.java
+--- a/src/fr/exo6_Etudiant2/Test.java	(revision 14192396483bf4a94badad7edba4f3b921d9e06e)
++++ b/src/fr/exo6_Etudiant2/Test.java	(date 1652426555512)
+@@ -7,9 +7,11 @@
+ 
+         personne.sayHello();
+ 
+-        Student stu = new Student(15);
++        Student stu = new Student();
+         stu.sayHello();
+-        stu.GoToClasses();
++        stu.goToClasses();
++        stu.displayAge();
++        stu.setAge(24);
+         stu.displayAge();
+ 
+         Teacher tea = new Teacher();
+Index: src/fr/exo6_Etudiant2/Person.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package fr.exo6_Etudiant2;\r\n\r\npublic class Person {\r\n\r\n    protected int age;\r\n\r\n    public void sayHello(){\r\n        System.out.println(\"Hello\");\r\n    }\r\n\r\n    public void setAge( int age){\r\n        this.age = age;\r\n    }\r\n\r\n    public int getAge() {\r\n        return age;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/fr/exo6_Etudiant2/Person.java b/src/fr/exo6_Etudiant2/Person.java
+--- a/src/fr/exo6_Etudiant2/Person.java	(revision 14192396483bf4a94badad7edba4f3b921d9e06e)
++++ b/src/fr/exo6_Etudiant2/Person.java	(date 1652426886576)
+@@ -2,17 +2,28 @@
+ 
+ public class Person {
+ 
+-    protected int age;
++
++    //Attributs
++    protected int age =99;
+ 
+-    public void sayHello(){
+-        System.out.println("Hello");
++    public Person() {
++    }
++
++    public Person(int age) {
++        this.age = age;
+     }
+ 
+-    public void setAge( int age){
++    public void setAge(int age){
+         this.age = age;
++//        this.setAge(age);
+     }
+ 
+     public int getAge() {
+-        return age;
++        return this.age;
++    }
++
++    //Methode
++    public void sayHello(){
++        System.out.println("Hello");
+     }
+ }
+Index: src/fr/exo6_Etudiant2/Student.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package fr.exo6_Etudiant2;\r\n\r\npublic class Student extends Person {\r\n\r\n    public int age;\r\n\r\n    public Student() {\r\n    }\r\n\r\n    public Student(int age) {\r\n        this.age = age;\r\n    }\r\n\r\n    public void displayAge() {\r\n        System.out.println(\"My age is :\" + getAge());\r\n    }\r\n\r\n\r\n    public void GoToClasses() {\r\n        System.out.println(\"I'm going to class\");\r\n\r\n    }\r\n};\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/fr/exo6_Etudiant2/Student.java b/src/fr/exo6_Etudiant2/Student.java
+--- a/src/fr/exo6_Etudiant2/Student.java	(revision 14192396483bf4a94badad7edba4f3b921d9e06e)
++++ b/src/fr/exo6_Etudiant2/Student.java	(date 1652427773172)
+@@ -2,22 +2,37 @@
+ 
+ public class Student extends Person {
+ 
+-    public int age;
++//    public int age =27;
+ 
++    //Constructeur
+     public Student() {
+     }
+-
+-    public Student(int age) {
+-        this.age = age;
++    public Student(int age){
++        super(age);
+     }
+ 
++//
++//    public Student(int age) {
++//        this.age = age;
++//    }
++
++
++
++
++    //Methodes
+     public void displayAge() {
+-        System.out.println("My age is :" + getAge());
++        System.out.println("My age is :" + getAge()+ "years old");
+     }
+ 
+-
+-    public void GoToClasses() {
+-        System.out.println("I'm going to class");
++        public void goToClasses() {
++            System.out.println("I'm going to class");
+ 
++        }
++
++    @Override
++    public String toString() {
++        return "Student{" +
++                "age=" + age +
++                '}';
+     }
+-};
++}
+Index: src/fr/exo6_Etudiant2/Teacher.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package fr.exo6_Etudiant2;\r\n\r\npublic class Teacher extends Person{\r\n\r\n    private String subject;\r\n    private int age;\r\n\r\n    public Teacher() {\r\n    }\r\n\r\n    public Teacher(String subject) {\r\n        this.subject = subject;\r\n    }\r\n\r\n    public void explain(){\r\n        System.out.println(\"Explanation begins\");\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/fr/exo6_Etudiant2/Teacher.java b/src/fr/exo6_Etudiant2/Teacher.java
+--- a/src/fr/exo6_Etudiant2/Teacher.java	(revision 14192396483bf4a94badad7edba4f3b921d9e06e)
++++ b/src/fr/exo6_Etudiant2/Teacher.java	(date 1652428432653)
+@@ -1,19 +1,56 @@
+ package fr.exo6_Etudiant2;
+ 
+ public class Teacher extends Person{
+-
++    //Attributs
+     private String subject;
+-    private int age;
++//    private int age;
+ 
++    //Constructeur
+     public Teacher() {
++        this.subject = "sujet";
++    }
++    public Teacher(int age, String subject) {
++        super(age);
++        this.subject = subject;
++    }
++
++    //Getteurs et Setteurs
++
++
++    public String getSubject() {
++        return subject;
++    }
++
++    public void setSubject(String subject) {
++        this.subject = subject;
+     }
+ 
+     public Teacher(String subject) {
+         this.subject = subject;
+     }
+ 
++    //Methode
+     public void explain(){
+         System.out.println("Explanation begins");
++    }
+ 
++    @Override
++    public String toString() {
++        return "Teacher{" +
++                "subject='" + subject + '\'' +
++                ", age=" + age +
++                '}';
+     }
++
++    @Override
++    public boolean equals(Object o) {
++        if (this == o) return true;
++        if (o == null || getClass() != o.getClass()) return false;
++
++        Teacher teacher = (Teacher) o;
++
++        return subject != null ? subject.equals(teacher.subject) : teacher.subject == null;
++    }
++
++
+ }
+Index: src/fr/exo6_Etudiant2/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/fr/exo6_Etudiant2/Main.java b/src/fr/exo6_Etudiant2/Main.java
+new file mode 100644
+--- /dev/null	(date 1652428449476)
++++ b/src/fr/exo6_Etudiant2/Main.java	(date 1652428449476)
+@@ -0,0 +1,32 @@
++package fr.exo6_Etudiant2;
++
++import jdk.swing.interop.SwingInterOpUtils;
++import org.w3c.dom.ls.LSOutput;
++
++import java.sql.SQLOutput;
++
++public class Main {
++    public static void main(String[] args) {
++
++        Person personne1 = new Person();
++
++        personne1.sayHello();
++        Student etudiant1 = new Student();
++        etudiant1.setAge(666);
++        etudiant1.sayHello();
++        etudiant1.goToClasses();
++        etudiant1.displayAge();
++        System.out.println(etudiant1);
++
++        Teacher t1 = new Teacher(40, "un sujet que le prof va faire");
++        t1.sayHello();
++        System.out.println(t1);
++        System.out.println(t1.hashCode());
++        t1.setAge(44);
++        t1.sayHello();
++        System.out.println("mon age de prof est : "+ t1.getAge()+"years old");
++        t1.explain();
++
++
++    }
++}
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"d536f497-094a-48c6-849a-f7d700795e4d\" name=\"Changes\" comment=\"Exo Complex\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/fr/exo5_Point/Point.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/fr/exo6_Etudiant2/Person.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/fr/exo6_Etudiant2/Student.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/fr/exo6_Etudiant2/Teacher.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/fr/exo6_Etudiant2/Test.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/fr/exo_PointBis/PointBis.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/fr/java_tools/Main.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"291QwxDwEbgBeNWV0S0qLt0QzCk\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;\r\n  }\r\n}</component>\r\n  <component name=\"Push.Settings\">\r\n    <force-push-targets>\r\n      <force-push-target remote-path=\"origin\" branch=\"main\" />\r\n    </force-push-targets>\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveClassesOrPackagesDialog.RECENTS_KEY\">\r\n      <recent name=\"fr.exo_Rectangle\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Application.Test\">\r\n    <configuration name=\"Test\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"fr.exo6_Etudiant2.Test\" />\r\n      <module name=\"Aston_POO\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"fr.exo6_Etudiant2.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"fr.exo2_Somme.Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"fr.exo2_Somme.Main\" />\r\n      <module name=\"Aston_POO\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"fr.exo2_Somme.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"fr.exo4_AdditonComplexe.main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"fr.exo4_AdditonComplexe.main\" />\r\n      <module name=\"Aston_POO\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"fr.exo4_AdditonComplexe.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"fr.java_tools.Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"fr.java_tools.Main\" />\r\n      <module name=\"Aston_POO\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"fr.java_tools.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"fr.exo3_Etudiant.main\" />\r\n      <module name=\"Aston_POO\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"fr.exo3_Etudiant.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.Test\" />\r\n        <item itemvalue=\"Application.fr.java_tools.Main\" />\r\n        <item itemvalue=\"Application.fr.exo4_AdditonComplexe.main\" />\r\n        <item itemvalue=\"Application.main\" />\r\n        <item itemvalue=\"Application.fr.exo2_Somme.Main\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"d536f497-094a-48c6-849a-f7d700795e4d\" name=\"Changes\" comment=\"\" />\r\n      <created>1652278354152</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1652278354152</updated>\r\n      <workItem from=\"1652278355602\" duration=\"2815000\" />\r\n      <workItem from=\"1652338748817\" duration=\"24919000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Exo Rectangle update\">\r\n      <created>1652341540175</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1652341540175</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Exo Rectangle update\">\r\n      <created>1652341558913</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1652341558913</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Exo Rectangle update\">\r\n      <created>1652342347787</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1652342347787</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Exo Rectangle update\">\r\n      <created>1652342365951</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1652342365951</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Exo Rectangle update\">\r\n      <created>1652346796632</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1652346796632</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"Exo Rectangle update\">\r\n      <created>1652346819688</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1652346819688</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"Exo Rectangle update\">\r\n      <created>1652346832953</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1652346832953</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"Exo Rectangle update\">\r\n      <created>1652347278684</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1652347278684</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"Exo Rectangle update\">\r\n      <created>1652347292175</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1652347292175</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"Exo Rectangle update\">\r\n      <created>1652347335918</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1652347335918</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"Exo Rectangle update\">\r\n      <created>1652358593052</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1652358593052</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"Exo Complex\">\r\n      <created>1652358615057</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1652358615057</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"13\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Exo Rectangle\" />\r\n    <MESSAGE value=\"Exo Rectangl\" />\r\n    <MESSAGE value=\"Exo Student\" />\r\n    <MESSAGE value=\"Exo Rectangle update\" />\r\n    <MESSAGE value=\"Exo Complex\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Exo Complex\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 14192396483bf4a94badad7edba4f3b921d9e06e)
++++ b/.idea/workspace.xml	(date 1652428746946)
+@@ -1,15 +1,13 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ChangeListManager">
+-    <list default="true" id="d536f497-094a-48c6-849a-f7d700795e4d" name="Changes" comment="Exo Complex">
+-      <change afterPath="$PROJECT_DIR$/src/fr/exo5_Point/Point.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/fr/exo6_Etudiant2/Person.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/fr/exo6_Etudiant2/Student.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/fr/exo6_Etudiant2/Teacher.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/fr/exo6_Etudiant2/Test.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/fr/exo_PointBis/PointBis.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/fr/java_tools/Main.java" afterDir="false" />
++    <list default="true" id="d536f497-094a-48c6-849a-f7d700795e4d" name="Changes" comment="Exo Etudiant 2">
++      <change afterPath="$PROJECT_DIR$/src/fr/exo6_Etudiant2/Main.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/fr/exo6_Etudiant2/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/exo6_Etudiant2/Person.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/fr/exo6_Etudiant2/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/exo6_Etudiant2/Student.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/fr/exo6_Etudiant2/Teacher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/exo6_Etudiant2/Teacher.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/fr/exo6_Etudiant2/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/exo6_Etudiant2/Test.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -53,9 +51,9 @@
+       <recent name="fr.exo_Rectangle" />
+     </key>
+   </component>
+-  <component name="RunManager" selected="Application.Test">
+-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+-      <option name="MAIN_CLASS_NAME" value="fr.exo6_Etudiant2.Test" />
++  <component name="RunManager" selected="Application.Main">
++    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="fr.exo6_Etudiant2.Main" />
+       <module name="Aston_POO" />
+       <extension name="coverage">
+         <pattern>
+@@ -67,12 +65,12 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="fr.exo2_Somme.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+-      <option name="MAIN_CLASS_NAME" value="fr.exo2_Somme.Main" />
++    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="fr.exo6_Etudiant2.Test" />
+       <module name="Aston_POO" />
+       <extension name="coverage">
+         <pattern>
+-          <option name="PATTERN" value="fr.exo2_Somme.*" />
++          <option name="PATTERN" value="fr.exo6_Etudiant2.*" />
+           <option name="ENABLED" value="true" />
+         </pattern>
+       </extension>
+@@ -121,11 +119,11 @@
+     </configuration>
+     <recent_temporary>
+       <list>
++        <item itemvalue="Application.Main" />
+         <item itemvalue="Application.Test" />
+         <item itemvalue="Application.fr.java_tools.Main" />
+         <item itemvalue="Application.fr.exo4_AdditonComplexe.main" />
+         <item itemvalue="Application.main" />
+-        <item itemvalue="Application.fr.exo2_Somme.Main" />
+       </list>
+     </recent_temporary>
+   </component>
+@@ -138,7 +136,8 @@
+       <option name="presentableId" value="Default" />
+       <updated>1652278354152</updated>
+       <workItem from="1652278355602" duration="2815000" />
+-      <workItem from="1652338748817" duration="24919000" />
++      <workItem from="1652338748817" duration="25266000" />
++      <workItem from="1652425152640" duration="3567000" />
+     </task>
+     <task id="LOCAL-00001" summary="Exo Rectangle update">
+       <created>1652341540175</created>
+@@ -224,7 +223,21 @@
+       <option name="project" value="LOCAL" />
+       <updated>1652358615057</updated>
+     </task>
+-    <option name="localTasksCounter" value="13" />
++    <task id="LOCAL-00013" summary="Exo Etudiant 2">
++      <created>1652366574639</created>
++      <option name="number" value="00013" />
++      <option name="presentableId" value="LOCAL-00013" />
++      <option name="project" value="LOCAL" />
++      <updated>1652366574639</updated>
++    </task>
++    <task id="LOCAL-00014" summary="Exo Etudiant 2">
++      <created>1652366588076</created>
++      <option name="number" value="00014" />
++      <option name="presentableId" value="LOCAL-00014" />
++      <option name="project" value="LOCAL" />
++      <updated>1652366588076</updated>
++    </task>
++    <option name="localTasksCounter" value="15" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -247,6 +260,7 @@
+     <MESSAGE value="Exo Student" />
+     <MESSAGE value="Exo Rectangle update" />
+     <MESSAGE value="Exo Complex" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Exo Complex" />
++    <MESSAGE value="Exo Etudiant 2" />
++    <option name="LAST_COMMIT_MESSAGE" value="Exo Etudiant 2" />
+   </component>
+ </project>
+\ No newline at end of file
